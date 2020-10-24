@@ -1,0 +1,109 @@
+
+<ion-content>
+
+
+
+
+<div class="container">
+
+ <div class="top">
+
+<div >
+  
+ <ion-card>
+    <ion-card-content>
+      
+    <ion-img id="imagess"  src="../../assets/images.png"></ion-img>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+</div>
+
+<div>
+
+  <ion-button  id="button">List OF Products </ion-button>
+</div>
+
+
+<div id="sign">signOut </div>
+
+
+
+ </div>
+
+ <div class="main">
+
+
+
+<div class="side">
+<p routerLink="/add">ADD</p>
+<!--
+<p routerLink="/delete">DELETE</p>
+<p routerLink="/update">UPDATE</p>-->
+
+
+
+</div>
+
+
+<div class="content">
+
+<ion-list *ngFor="let product of productList | async">
+
+<ion-item  >
+ <ion-avatar slot="start">
+  <img [src]=""/>
+
+ 
+  </ion-avatar>
+  <ion-label>
+ {{product.name}}
+   
+    <h2>{{ product.price}}</h2>
+   
+
+  </ion-label>
+ 
+
+
+
+</ion-item>
+
+
+
+
+
+<ion-item>
+<ion-button routerLink="/details/{{product.id}}">DELETE</ion-button>
+  <ion-button routerLink="/update/{{product.id}}">UPDATE</ion-button>
+</ion-item>
+ 
+ 
+
+
+</ion-list>
+
+ 
+
+
+
+</div>
+
+
+
+ </div>
+
+
+</div>
+
+
+</ion-content>
+
+   
+
+
+
+

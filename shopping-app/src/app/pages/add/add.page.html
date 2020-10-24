@@ -1,0 +1,114 @@
+
+<ion-content>
+
+
+
+<div class="container">
+
+ <div class="top">
+
+<div >
+  
+ <ion-card>
+    <ion-card-content>
+      
+    <ion-img id="imagess"  src="../../assets/images.png"></ion-img>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+</div>
+
+<div>
+
+  <ion-button  id="button">Manage Products </ion-button>
+</div>
+
+
+<div id="sign">signOut </div>
+
+ </div>
+
+ <div class="main">
+
+<div class="side">
+
+<p routerLink="">HOME</p>
+
+</div>
+<div class="content">
+
+ <div class="imageTop">
+
+<ion-card id="padCard">
+    <ion-card-content>
+      
+    <ion-img id="imagesss"  src="../../assets/1.jfif"></ion-img>
+      
+ 
+    </ion-card-content>
+
+  </ion-card>
+     <ion-input id="input" placeholder="Select Item Image" onfocus="this.value=''" type="file" accept="image/*" (change)="addPic($event)" ></ion-input>
+
+ </div>
+
+ <div class="bottomDiv">
+
+ <form [formGroup]="createProductForm" (submit)="createProduct()">
+ <ion-item>
+
+      <ion-textarea
+        formControlName="description"
+        type="text"
+        placeholder="Enter description"
+      >
+      </ion-textarea>
+    </ion-item>
+ <ion-item>
+      
+      <ion-input
+        formControlName="name"
+        type="text"
+        placeholder="Enter name"
+      >
+      </ion-input>
+    </ion-item>
+
+ <ion-item>
+
+      <ion-input
+        formControlName="price"
+        type="text"
+        placeholder="Enter price "
+      >
+      </ion-input>
+    </ion-item>
+<ion-button expand="block" type="submit" [disabled]="!createProductForm.valid">
+      Add Product
+    </ion-button>
+
+
+
+
+ </form>
+
+</div>
+
+
+
+</div>
+
+
+
+ </div>
+
+
+</div>
+
+
+</ion-content>
+
+   
