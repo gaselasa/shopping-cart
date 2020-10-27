@@ -2,18 +2,19 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/Models/product.interface';
-import * as firebase from 'firebase';
+
+import { AngularFireStorage } from '@angular/fire/storage';
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
 
-  constructor(public firestore: AngularFirestore) { }
+  constructor(public firestore: AngularFirestore,private storage: AngularFireStorage) { }
 
 
-createProduct(description: string, name: string, price: number, ): Promise<void> {
+createProduct(description: string, name: string, price: number, id): Promise<void> {
 
-   const id = this.firestore.createId();
+   //const id = this.firestore.createId();
 
    return this.firestore.doc(`ProductList/${id}`).set({
   id,

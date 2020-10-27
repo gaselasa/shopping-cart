@@ -55,14 +55,14 @@
 
 <ion-item  >
  <ion-avatar slot="start">
-  <img [src]=""/>
+  <img [src]="product.imageUrl"/>
 
  
   </ion-avatar>
   <ion-label>
  {{product.name}}
    
-    <h2>{{ product.price}}</h2>
+    <h2>{{product.price}}</h2>
    
 
   </ion-label>
@@ -77,7 +77,8 @@
 
 
 <ion-item>
-<ion-button routerLink="/details/{{product.id}}">DELETE</ion-button>
+<ion-button (click)="deleteSong(product.id,product.name)">DELETE</ion-button>
+
   <ion-button routerLink="/update/{{product.id}}">UPDATE</ion-button>
 </ion-item>
  

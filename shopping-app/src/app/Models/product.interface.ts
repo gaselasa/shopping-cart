@@ -18,7 +18,7 @@ export class Product implements Product{
     name:string
     Description:string
     price:string
-    pic:Url
+    imageUrl:Url
     constructor(){
 
 

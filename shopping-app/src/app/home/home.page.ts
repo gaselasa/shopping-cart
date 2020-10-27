@@ -3,6 +3,11 @@ import { Observable } from 'rxjs';
 import { Product } from '../Models/product.interface';
 import { FirestoreService } from '../services/data/firestore.service';
 
+import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
+
+import { AlertController, LoadingController } from '@ionic/angular';
+import { AngularFireStorage } from '@angular/fire/storage';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -10,32 +15,53 @@ import { FirestoreService } from '../services/data/firestore.service';
 })
 export class HomePage implements OnInit{
 
-
-
+   
    productList: Observable<Product[]>;
 
 
 
 
-  constructor(private firestoreService: FirestoreService/*private messageService:MessageService*/){ 
-    this.callGetProduct();
+  constructor(private firestoreService: FirestoreService,
+          
+              private alertController: AlertController,
+           ){
 
-  }
-
+ 
+              }
   ngOnInit(): void {
-   /* this.messageService.getMessage().subscribe(()=>{
-      this.callGetProduct();
-    })*/
-  this.productList = this.firestoreService.getProductList();
+    this.productList = this.firestoreService.getProductList();
+    
+    }
+ 
 
-  }
-  callGetProduct(){
-  /*  this.firestoreService.getProductList().subscribe((product: Product[])=>{
+  async deleteSong(id: string, name: string): Promise<void> {
+   
+    const alert = await this.alertController.create({
+    message: `Are you sure you want to delete ${name}?`,
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: blah => {
+          console.log('Confirm Cancel: blah');
+        },
+      },
+      {
+        text: 'Okay',
+        handler: () => {
+          this.firestoreService.deleteSong(id).then(() => {
+          });
+        },
+      },
+    ],
+  });
+
+    await alert.present();
+}
 
 
-      this.productList= product;
-      });*/
 
-  }
+
+
 
 }

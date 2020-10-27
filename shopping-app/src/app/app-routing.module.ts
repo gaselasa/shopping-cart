@@ -20,20 +20,8 @@ const routes: Routes = [
     path: 'update/:id',
     loadChildren: () => import('./pages/update/update.module').then( m => m.UpdatePageModule)
   },
-  {
-    path: 'datails/:id',
-    loadChildren: () => {
-      return import('./datails/datails.module').then(m => m.DatailsPageModule);
-    }
-  },
-  {
-    path: 'product-list-item',
-    loadChildren: () => import('./product-list-item/product-list-item.module').then( m => m.ProductListItemPageModule)
-  },
-  {
-    path: 'product-list',
-    loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
-  },
+  
+ 
 ];
 
 @NgModule({
